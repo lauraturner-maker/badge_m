@@ -6,8 +6,8 @@
     <style>
         :root {
             --magna-red: #ed1c24;
-            --dark-charcoal: #1a1a1a;
-            --silver-gradient: linear-gradient(145deg, #ffffff, #d1d1d1);
+            --dark-charcoal: #121212;
+            --glass-white: rgba(255, 255, 255, 0.05);
         }
 
         body {
@@ -16,43 +16,42 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         /* The Badge Container */
         .magna-badge {
-            width: 320px;
+            width: 300px;
             background: var(--dark-charcoal);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             border: 1px solid #333;
             color: white;
             position: relative;
-        }
-
-        /* Top Accent Bar */
-        .magna-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: var(--magna-red);
-        }
-
-        .content {
-            padding: 24px;
             text-align: center;
         }
 
+        /* Red Header Accent */
+        .header-accent {
+            background: var(--magna-red);
+            height: 8px;
+            width: 100%;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .logo-area {
+            margin-bottom: 25px;
+        }
+
         .logo-text {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 4px;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
             text-transform: uppercase;
         }
 
@@ -60,63 +59,129 @@
             color: var(--magna-red);
         }
 
-        .tagline {
+        /* Simulated QR Code using CSS Gradients */
+        .qr-wrapper {
+            background: white;
+            padding: 10px;
+            border-radius: 12px;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            /* Creating a stylized QR pattern with gradients */
+            background-image: 
+                linear-gradient(45deg, #000 25%, transparent 25%), 
+                linear-gradient(-45deg, #000 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #000 75%), 
+                linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 10px 10px;
+            background-position: 0 0, 0 5px, 5px -5px, -5px 0px;
+            border: 4px solid #000;
+            position: relative;
+        }
+
+        /* Identity Details */
+        .user-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+            color: #fff;
+        }
+
+        .user-title {
             font-size: 12px;
-            font-weight: 300;
-            color: #aaa;
-            letter-spacing: 2px;
+            color: #888;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
             margin-bottom: 20px;
         }
 
-        .status-chip {
-            display: inline-block;
-            background: rgba(237, 28, 36, 0.1);
-            border: 1px solid var(--magna-red);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .footer-info {
-            background: #222;
-            padding: 12px;
-            font-size: 11px;
-            display: flex;
-            justify-content: space-between;
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             border-top: 1px solid #333;
-            color: #888;
+            padding-top: 15px;
         }
 
-        /* Simple hover effect for interactivity */
-        .magna-badge:active {
-            transform: scale(0.98);
-            transition: 0.2s;
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .label {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .value {
+            font-size: 13px;
+            font-weight: 500;
+            color: #ccc;
+        }
+
+        /* Holographic overlay effect */
+        .shimmer {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                transparent, 
+                rgba(255,255,255,0.05), 
+                transparent
+            );
+            transform: skewX(-25deg);
+            animation: move-shimmer 4s infinite;
+        }
+
+        @keyframes move-shimmer {
+            0% { left: -100%; }
+            30% { left: 150%; }
+            100% { left: 150%; }
         }
     </style>
 </head>
 <body>
 
     <div class="magna-badge">
-        <div class="content">
-            <div class="logo-text">Magna<span>.</span></div>
-            <div class="tagline">Forward. For all.</div>
-            
-            <div class="status-chip">
-                Mobility Technology
-            </div>
-            
-            <p style="font-size: 14px; color: #ddd; line-height: 1.4;">
-                Driving the future of mobility with innovative modular solutions.
-            </p>
-        </div>
+        <div class="shimmer"></div>
+        <div class="header-accent"></div>
         
-        <div class="footer-info">
-            <span>Global Supplier</span>
-            <span>Est. 1957</span>
+        <div class="content">
+            <div class="logo-area">
+                <div class="logo-text">MAGNA<span>.</span></div>
+            </div>
+
+            <div class="qr-wrapper">
+                <div class="qr-code"></div>
+            </div>
+
+            <h2 class="user-name">Alex Sterling</h2>
+            <p class="user-title">Project Engineer</p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Issued</span>
+                    <span class="value">Feb 26, 2026</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">ID Number</span>
+                    <span class="value">M-8842-X</span>
+                </div>
+            </div>
         </div>
     </div>
 
