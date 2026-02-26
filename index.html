@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --magna-red: #ed1c24;
+            --dark-charcoal: #1a1a1a;
+            --silver-gradient: linear-gradient(145deg, #ffffff, #d1d1d1);
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* The Badge Container */
+        .magna-badge {
+            width: 320px;
+            background: var(--dark-charcoal);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid #333;
+            color: white;
+            position: relative;
+        }
+
+        /* Top Accent Bar */
+        .magna-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--magna-red);
+        }
+
+        .content {
+            padding: 24px;
+            text-align: center;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            color: var(--magna-red);
+        }
+
+        .tagline {
+            font-size: 12px;
+            font-weight: 300;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .status-chip {
+            display: inline-block;
+            background: rgba(237, 28, 36, 0.1);
+            border: 1px solid var(--magna-red);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .footer-info {
+            background: #222;
+            padding: 12px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Simple hover effect for interactivity */
+        .magna-badge:active {
+            transform: scale(0.98);
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="magna-badge">
+        <div class="content">
+            <div class="logo-text">Magna<span>.</span></div>
+            <div class="tagline">Forward. For all.</div>
+            
+            <div class="status-chip">
+                Mobility Technology
+            </div>
+            
+            <p style="font-size: 14px; color: #ddd; line-height: 1.4;">
+                Driving the future of mobility with innovative modular solutions.
+            </p>
+        </div>
+        
+        <div class="footer-info">
+            <span>Global Supplier</span>
+            <span>Est. 1957</span>
+        </div>
+    </div>
+
+</body>
+</html>
