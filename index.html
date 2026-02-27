@@ -4,38 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        :root {
-            --magna-red: #ed1c24;
-            --dark-charcoal: #121212;
-            --glass-white: rgba(255, 255, 255, 0.05);
-        }
-
+        /* Force the body to be transparent so the widget sits cleanly in the app */
         body {
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #e0e0e0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: transparent !important;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* The Badge Container */
+        /* The Badge Container - Forced Dark Background */
         .magna-badge {
-            width: 300px;
-            background: var(--dark-charcoal);
+            width: 100%;
+            max-width: 320px;
+            background-color: #121212 !important; /* Hardcoded black */
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid #333;
-            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333333;
+            color: #ffffff !important;
             position: relative;
             text-align: center;
         }
 
         /* Red Header Accent */
         .header-accent {
-            background: var(--magna-red);
+            background-color: #ed1c24 !important; /* Hardcoded Magna Red */
             height: 8px;
             width: 100%;
         }
@@ -53,19 +49,20 @@
             font-weight: 900;
             letter-spacing: -0.5px;
             text-transform: uppercase;
+            color: #ffffff !important;
         }
 
         .logo-text span {
-            color: var(--magna-red);
+            color: #ed1c24 !important;
         }
 
-        /* Updated QR Code Area */
+        /* QR Code Area */
         .qr-wrapper {
-            background: white;
+            background: #ffffff !important;
             padding: 10px;
             border-radius: 12px;
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 25px;
             display: flex;
             align-items: center;
@@ -73,79 +70,77 @@
         }
 
         .qr-code {
-            width: 110px;
-            height: 110px;
-            /* Using a public API to generate a real QR code */
+            width: 120px;
+            height: 120px;
             background-image: url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Alex-Sterling-M-8842-X');
-            background-size: cover;
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
-            border: none;
-            position: relative;
         }
 
         /* Identity Details */
         .user-name {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             margin: 0;
-            color: #fff;
+            color: #ffffff !important;
         }
 
         .user-title {
-            font-size: 12px;
-            color: #888;
+            font-size: 13px;
+            color: #aaaaaa !important;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 4px;
-            margin-bottom: 20px;
+            margin: 6px 0 20px 0;
         }
 
         .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #333333;
             padding-top: 15px;
         }
 
         .info-item {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            text-align: center;
         }
 
         .label {
             font-size: 10px;
-            color: #666;
+            color: #777777 !important;
             text-transform: uppercase;
             font-weight: 700;
+            margin-bottom: 4px;
         }
 
         .value {
             font-size: 13px;
             font-weight: 500;
-            color: #ccc;
+            color: #dddddd !important;
         }
 
-        /* Holographic overlay effect */
+        /* Animation - Simplified for mobile performance */
         .shimmer {
             position: absolute;
             top: 0;
             left: -100%;
-            width: 50%;
+            width: 100%;
             height: 100%;
             background: linear-gradient(
-                to right, 
+                90deg, 
                 transparent, 
-                rgba(255,255,255,0.05), 
+                rgba(255,255,255,0.08), 
                 transparent
             );
-            transform: skewX(-25deg);
-            animation: move-shimmer 4s infinite;
+            transform: skewX(-20deg);
+            animation: move-shimmer 3s infinite;
         }
 
         @keyframes move-shimmer {
-            0% { left: -100%; }
-            30% { left: 150%; }
+            0% { left: -150%; }
+            40% { left: 150%; }
             100% { left: 150%; }
         }
     </style>
